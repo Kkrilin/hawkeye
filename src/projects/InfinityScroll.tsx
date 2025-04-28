@@ -42,15 +42,16 @@ export default function InfinityScroll() {
     }, [])
 
     const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-        if (throttleTimer.current) return;
+        e.preventDefault()
+        // if (throttleTimer.current) return;
 
         // throttleTimer.current = window.setTimeout(() => {
         if (!nextPageLoading && e.currentTarget.scrollTop + e.currentTarget.clientHeight >= e.currentTarget.scrollHeight - 100) {
             fetchImages(page);
             setPage(state => state + 1);
         }
-        clearTimeout(throttleTimer.current!);
-        throttleTimer.current = null;
+        // clearTimeout(throttleTimer.current!);
+        // throttleTimer.current = null;
         // }, 0);
     }, [nextPageLoading, page]);
 
