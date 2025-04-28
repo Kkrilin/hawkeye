@@ -36,6 +36,7 @@ export default function InfinityScroll() {
             console.log(error)
         } finally {
             setNextPageLoading(false)
+            setLoading(false)
         }
     }
     useEffect(() => {
@@ -57,7 +58,7 @@ export default function InfinityScroll() {
     }, [nextPageLoading, page]);
 
     return (
-        <div onScroll={(e) => handleScroll(e)} style={{ overflowY: "scroll", maxHeight: "92vh" }}>
+        <div onScroll={(e) => handleScroll(e)} style={{ overflowY: "scroll", scrollBehavior: "smooth", maxHeight: "92vh" }}>
             <h1 className="text-center text-4xl">infinity Scroll</h1>
             {/* {loading && <Loader />} */}
             {!loading && <Images images={items} />}

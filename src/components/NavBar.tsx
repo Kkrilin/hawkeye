@@ -4,47 +4,32 @@ export default function NavBar() {
     return (
         <nav >
             <ul>
-                <NavLink
-                    to="/tictoc"
-                    style={({ isActive }) => ({
-                        color: isActive ? "white" : "rgb(135, 135, 136)"
-                    })}
-                >
-                    <li>
-                        tictoc
-                    </li>
-                </NavLink>
-                <NavLink
-                    to="/infinityscroll"
-                    style={({ isActive }) => ({
-                        color: isActive ? "white" : "rgb(135, 135, 136)"
-                    })}
-                >
-                    <li>
-                        infinityscroll
-                    </li>
-                </NavLink>
-                <NavLink
-                    to="/chessboard"
-                    style={({ isActive }) => ({
-                        color: isActive ? "white" : "rgb(135, 135, 136)"
-                    })}
-                >
-                    <li>
-                        chessboard
-                    </li>
-                </NavLink>
-                <NavLink
-                    to="/modal"
-                    style={({ isActive }) => ({
-                        color: isActive ? "white" : "rgb(135, 135, 136)"
-                    })}
-                >
-                    <li>
-                        modal
-                    </li>
-                </NavLink>
+                <NavBarLink to="/tictoc" text="tictoc" />
+                <NavBarLink to="/infinityscroll" text="infinityscroll" />
+                <NavBarLink to="/chessboard" text="chessboard" />
+                <NavBarLink to="/modal" text="modal" />
+                <NavBarLink to="/stopwatch" text="stopwatch" />
             </ul>
         </nav>
+    )
+}
+
+interface NavBarLinkProps {
+    to: string,
+    text: string
+}
+
+function NavBarLink({ to, text }: NavBarLinkProps) {
+    return (
+        <NavLink
+            to={`${to}`}
+            style={({ isActive }) => ({
+                color: isActive ? "white" : "rgb(135, 135, 136)"
+            })}
+        >
+            <li>
+                {text}
+            </li>
+        </NavLink>
     )
 }

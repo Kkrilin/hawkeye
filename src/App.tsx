@@ -5,6 +5,7 @@ import TicTok from './projects/TicToc'
 import InfinityScroll from './projects/InfinityScroll';
 import ChessBoard from './projects/ChessBoard';
 import Modal from './projects/Modal';
+import StopWatch from './projects/StopWatch';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path='infinityscroll' element={<InfinityScroll />} />
           <Route path='chessboard' element={<ChessBoard />} />
           <Route path='modal' element={<Modal>open model</Modal>} />
+          <Route path='stopwatch' element={<StopWatch/>} />
         </Route>
       </Routes>
     </BrowserRouter>
