@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
+// import { useRef } from "react"
 import Loader from "../components/Loader"
 
 interface ImgaeData {
@@ -16,7 +17,7 @@ export default function InfinityScroll() {
     const [loading, setLoading] = useState<boolean>(false)
     const [page, setPage] = useState(1)
     const [nextPageLoading, setNextPageLoading] = useState(false)
-    const throttleTimer = useRef<number | null>(null);
+    // const throttleTimer = useRef<number | null>(null);
 
     const header: AxiosRequestConfig = {
         headers: {

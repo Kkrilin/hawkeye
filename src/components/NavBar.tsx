@@ -34,6 +34,16 @@ export default function NavBar() {
                         chessboard
                     </li>
                 </NavLink>
+                <NavLink
+                    to="/modal"
+                    style={({ isActive }) => ({
+                        color: isActive ? "white" : "rgb(135, 135, 136)"
+                    })}
+                >
+                    <li>
+                        modal
+                    </li>
+                </NavLink>
             </ul>
         </nav>
     )

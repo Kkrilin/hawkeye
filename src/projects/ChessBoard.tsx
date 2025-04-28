@@ -4,15 +4,7 @@ export default function ChessBoard() {
     const [click, setClick] = useState(false)
     const [i, setI] = useState(0)
     const [j, setJ] = useState(0)
-    const style = {
-        width: '80px',
-        height: '80px',
-        border: '1px solid black',
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: `${click ? 'red' : "white"}`
-    }
+
     function handleClick(a: number, b: number) {
         setI(a)
         setJ(b)

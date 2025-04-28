@@ -11,6 +11,7 @@ body {
   color: #fff;
   background-color: #000;
   overflow: hidden;
+  position: relative;
 }
 
 code {
@@ -59,4 +60,15 @@ li:hover {
 
 .game-info {
   margin-left: 20px;
+}
+
+.back_drop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.4;
+  /* z-index: 10;  //optional */
 }
