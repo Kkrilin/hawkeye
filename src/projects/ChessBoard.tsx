@@ -38,7 +38,7 @@ export default function ChessBoard() {
                                     alignItems: "center",
                                     backgroundColor: `${click && (b - a === j - i || b + a === j + i) && a !== i && b !== j
                                         ? 'red'
-                                        : a === i && b === j
+                                        : click && a === i && b === j
                                             ? "#FEF3C6"
                                             : "white"}`
                                 }}>
