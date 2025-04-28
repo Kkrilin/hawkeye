@@ -24,7 +24,6 @@ export default function InfinityScroll() {
             "Content-Type": "application/json"
         }
     }
-
     const fetchImages = async (page: number) => {
         const url = `https://picsum.photos/v2/list?page=${page}&limit=10`
         setNextPageLoading(true)
@@ -41,24 +40,17 @@ export default function InfinityScroll() {
     }
     useEffect(() => {
         fetchImages(page)
-    }, [])
+    }, [page])
 
     const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-        e.preventDefault()
-        // if (throttleTimer.current) return;
-
-        // throttleTimer.current = window.setTimeout(() => {
-        if (!nextPageLoading && e.currentTarget.scrollTop + e.currentTarget.clientHeight >= e.currentTarget.scrollHeight - 100) {
-            fetchImages(page);
-            setPage(state => state + 1);
+        const { scrollTop, clientHeight, scrollHeight } = e.currentTarget
+        if (!nextPageLoading && scrollTop + clientHeight >= scrollHeight - 400) {
+            setPage(page + 1);
         }
-        // clearTimeout(throttleTimer.current!);
-        // throttleTimer.current = null;
-        // }, 0);
-    }, [nextPageLoading, page]);
+    }, [nextPageLoading]);
 
     return (
-        <div onScroll={(e) => handleScroll(e)} style={{ overflowY: "scroll", scrollBehavior: "smooth", maxHeight: "92vh" }}>
+        <div onScroll={(e) => !nextPageLoading && handleScroll(e)} style={{ overflowY: "auto", scrollBehavior: "smooth", maxHeight: "92vh" }}>
             <h1 className="text-center text-4xl">infinity Scroll</h1>
             {/* {loading && <Loader />} */}
             {!loading && <Images images={items} />}
