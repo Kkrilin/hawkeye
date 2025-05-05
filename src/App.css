@@ -74,6 +74,71 @@ li:hover {
   /* z-index: 10;  //optional */
 }
 
+.circle {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: rgb(105, 105, 105);
+}
+.stop {
+  background-color: red;
+}
+.ready {
+  background-color: yellow;
+}
+.go {
+  background-color: green;
+}
+
 .time {
   font-size: 1.5rem;
+}
+
+.toast {
+  position: absolute;
+  color: white;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  width: max-content;
+  transition: all 0.4s ease-in-out;
+}
+
+.success {
+  background-color: green;
+}
+.success::before {
+  content: "200";
+  margin-right: 10px;
+}
+
+.error {
+  background-color: red;
+}
+.error::before {
+  content: "500";
+}
+
+.info {
+  background-color: rgb(88, 87, 28);
+}
+.info::before {
+  content: "201";
+  margin-right: 10px;
+  margin-right: 10px;
+}
+
+.normal {
+  background-color: rgb(255, 255, 255);
+  color: #000;
+}
+.normal::before {
+  content: "100";
+}
+
+.warning {
+  background-color: rgb(146, 51, 27);
+}
+.warning::before {
+  margin-right: 10px;
+  content: "403";
 }

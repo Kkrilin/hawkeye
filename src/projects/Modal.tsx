@@ -7,7 +7,7 @@ type Props = {
 export default function Modal({ children }: Props) {
     const [open, setOpen] = useState(false)
     const [opacity, setOpacity] = useState(0)
-    const [position, setPositon] = useState({ left: 0, top: 0 })
+    const [position, setPositon] = useState({ left: 50, top: 50 })
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {

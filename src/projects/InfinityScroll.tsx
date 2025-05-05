@@ -66,7 +66,7 @@ interface ImagesProps {
 
 function Images({ images }: ImagesProps) {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
             {images.map(image => (
                 <ImageCard key={image.id} image={image} />
             ))}
@@ -81,9 +81,12 @@ interface ImageCardProps {
 function ImageCard({ image }: ImageCardProps) {
     return <div >
         <img
+            loading="lazy"
             className="w-full h-80 object-cover rounded-lg shadow-md"
             src={image.download_url}
             alt={image.author}
+            width={400}
+            height={400}
         />
     </div>
 }

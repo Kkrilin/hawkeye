@@ -9,6 +9,9 @@ export default function NavBar() {
                 <NavBarLink to="/chessboard" text="chessboard" />
                 <NavBarLink to="/modal" text="modal" />
                 <NavBarLink to="/stopwatch" text="stopwatch" />
+                <NavBarLink to="/toaster" text="toaster" />
+                <NavBarLink to="/traficlight" text="traficLight" />
+                <NavBarLink to="/passwordstrenth" text="passwordStrenth" />
             </ul>
         </nav>
     )
