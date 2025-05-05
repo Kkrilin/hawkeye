@@ -107,7 +107,7 @@ li:hover {
   background-color: green;
 }
 .success::before {
-  content: "200";
+  content: "\2713";
   margin-right: 10px;
 }
 
@@ -115,14 +115,15 @@ li:hover {
   background-color: red;
 }
 .error::before {
-  content: "500";
+  content: "!";
+  margin-right: 10px;
 }
 
 .info {
   background-color: rgb(88, 87, 28);
 }
 .info::before {
-  content: "201";
+  content: "\24D8";
   margin-right: 10px;
   margin-right: 10px;
 }
@@ -131,14 +132,11 @@ li:hover {
   background-color: rgb(255, 255, 255);
   color: #000;
 }
-.normal::before {
-  content: "100";
-}
 
 .warning {
   background-color: rgb(146, 51, 27);
 }
 .warning::before {
   margin-right: 10px;
-  content: "403";
+  content: "\26A0";
 }

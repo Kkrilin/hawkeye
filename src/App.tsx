@@ -9,6 +9,7 @@ import StopWatch from './projects/StopWatch';
 import Toaster from './projects/Toast';
 import TraficLight from './projects/TraficLight';
 import PasswordStrenth from './projects/PasswordStrenth';
+import GridLights from './projects/GridLights';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path='toaster' element={<Toaster />} />
           <Route path='traficlight' element={<TraficLight />} />
           <Route path='passwordstrenth' element={<PasswordStrenth />} />
+          <Route path='gridlights' element={<GridLights />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -12,6 +12,7 @@ export default function NavBar() {
                 <NavBarLink to="/toaster" text="toaster" />
                 <NavBarLink to="/traficlight" text="traficLight" />
                 <NavBarLink to="/passwordstrenth" text="passwordStrenth" />
+                <NavBarLink to="/gridlights" text="gridLights" />
             </ul>
         </nav>
     )
