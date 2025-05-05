@@ -10,6 +10,8 @@ import Toaster from './projects/Toast';
 import TraficLight from './projects/TraficLight';
 import PasswordStrenth from './projects/PasswordStrenth';
 import GridLights from './projects/GridLights';
+import ColumnTable from './projects/ColumnTable';
+import QuizApp from './projects/QuizApp';
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
           <Route path='traficlight' element={<TraficLight />} />
           <Route path='passwordstrenth' element={<PasswordStrenth />} />
           <Route path='gridlights' element={<GridLights />} />
+          <Route path='columntable' element={<ColumnTable />} />
+          <Route path='quizapp' element={<QuizApp />} />
         </Route>
       </Routes>
     </BrowserRouter>

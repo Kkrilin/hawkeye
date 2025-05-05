@@ -13,6 +13,8 @@ export default function NavBar() {
                 <NavBarLink to="/traficlight" text="traficLight" />
                 <NavBarLink to="/passwordstrenth" text="passwordStrenth" />
                 <NavBarLink to="/gridlights" text="gridLights" />
+                <NavBarLink to="/columntable" text="columnTable" />
+                <NavBarLink to="/quizapp" text="quizApp" />
             </ul>
         </nav>
     )
