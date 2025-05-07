@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 export default function NavBar() {
     return (
-        <nav >
+        <nav>
             <ul>
                 <NavBarLink to="/tictoc" text="tictoc" />
                 <NavBarLink to="/infinityscroll" text="infinityscroll" />
@@ -15,6 +15,13 @@ export default function NavBar() {
                 <NavBarLink to="/gridlights" text="gridLights" />
                 <NavBarLink to="/columntable" text="columnTable" />
                 <NavBarLink to="/quizapp" text="quizApp" />
+                <NavBarLink to="/transferlist" text="transferList" />
+                <NavBarLink to="/otp" text="otp" />
+                <NavBarLink to="/nestedcheckboxlist" text="nestedCheckboxList" />
+                <NavBarLink to="/nestedcoments" text="nestedComents" />
+                <NavBarLink to="/advancecounter" text="advanceCounter" />
+                <NavBarLink to="/chipsinput" text="chipsInput" />
+                <NavBarLink to="/todolist" text="todoList" />
             </ul>
         </nav>
     )

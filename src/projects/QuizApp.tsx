@@ -1,22 +1,10 @@
-import React, { act, useState } from 'react'
+import { useState } from 'react'
 
 import { quiz } from '../utils/quiz.json'
 import { lightBlue } from '@mui/material/colors'
 
 
-// {
-//     "question": "What is the purpose of state in React?",
-//     "choices": [
-//       "To store information that may change over time",
-//       "To declare static values for components",
-//       "To define global variables",
-//       "None of the above"
-//     ],
-//     "type": "MCQs",
-//     "correctAnswer": "To store information that may change over time"
-//   },
 
-console.log(quiz)
 export default function QuizApp() {
     const [activeQuestion, setActiveQuestion] = useState(0)
     const [answerSelect, setAnswerSelect] = useState(false)
@@ -33,7 +21,6 @@ export default function QuizApp() {
 
     const HandleNextClick = () => {
         setSelectedAnswerIndex(null)
-
         setResult((prvState => {
             return answerSelect ?
                 {
@@ -85,7 +72,11 @@ export default function QuizApp() {
                             disabled={selectedAnswerIndex === null}
                             onClick={HandleNextClick}
                             type='button'
-                            className='py-2 px-4 text-white bg-amber-950 rounded-2xl cursor-pointer hover:opacity-90'
+                            className='py-2 px-4 text-white rounded-2xl cursor-pointer hover:opacity-90'
+                            style={{
+                                cursor: selectedAnswerIndex === null ? "not-allowed" : 'pointer',
+                                backgroundColor: selectedAnswerIndex === null ? "gray" : '#461901',
+                            }}
                         >
                             {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
                         </button>
