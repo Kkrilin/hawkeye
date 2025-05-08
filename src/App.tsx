@@ -21,6 +21,7 @@ import ChipsInput from './projects/ChipsInput';
 import TodoList from './projects/TodoList';
 import MatchPair from './projects/MatchPair';
 import Calculator from './projects/Calculator';
+import WordConnect from './projects/WordConnect';
 
 export default function App() {
   return (
@@ -48,6 +49,7 @@ export default function App() {
           <Route path='todolist' element={<TodoList />} />
           <Route path='matchpair' element={<MatchPair />} />
           <Route path='calculator' element={<Calculator />} />
+          <Route path='wordconnect' element={<WordConnect />} />
         </Route>
       </Routes>
     </BrowserRouter>

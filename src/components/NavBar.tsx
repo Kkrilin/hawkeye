@@ -24,6 +24,7 @@ export default function NavBar() {
                 <NavBarLink to="/todolist" text="todoList" />
                 <NavBarLink to="/matchpair" text="matchPair" />
                 <NavBarLink to="/calculator" text="calculator" />
+                <NavBarLink to="/wordconnect" text="wordConnect" />
             </ul>
         </nav>
     )
