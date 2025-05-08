@@ -94,13 +94,56 @@ li:hover {
   font-size: 1.5rem;
 }
 
+.toast_container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.left {
+  left: 1rem;
+  align-items: flex-start;
+}
+
+.right {
+  right: 1rem;
+  align-items: flex-start;
+}
+
+.top {
+  top: 1rem;
+  align-items: flex-end;
+}
+
+.bottom {
+  bottom: 1rem;
+  align-items: flex-end;
+}
+
+.left .toast {
+  animation: topLeftShow 0.2s ease-in-out forwards;
+}
+
+.right .toast {
+  animation: topRightShow 0.2s ease-in-out forwards;
+}
+
+.left .toast.fade_left {
+  animation: fadeLeft 0.2s ease-in-out forwards;
+}
+.right .toast.fade_right {
+  animation: fadeRight 0.2s ease-in-out forwards;
+}
+
 .toast {
-  position: absolute;
+  height: 3rem;
+  position: relative;
   color: white;
   border-radius: 10px;
-  padding: 0.6rem 1rem;
-  width: max-content;
-  transition: all 0.4s ease-in-out;
+  padding: 0.6rem 0.8rem;
+  /* width: max-content; */
+  text-transform: capitalize;
 }
 
 .success {
@@ -139,6 +182,44 @@ li:hover {
 .warning::before {
   margin-right: 10px;
   content: "\26A0";
+}
+
+@keyframes topLeftShow {
+  from {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    left: 16rem;
+  }
+}
+@keyframes fadeLeft {
+  from {
+    left: 16rem;
+    /* transform: translateX(-100%); */
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes topRightShow {
+  from {
+    right: 0;
+    /* transform: translateX(-100%); */
+  }
+  to {
+    right: 16rem;
+  }
+}
+@keyframes fadeRight {
+  from {
+    right: 16rem;
+    /* transform: translateX(-100%); */
+  }
+  to {
+    right: 0;
+  }
 }
 
 .card {

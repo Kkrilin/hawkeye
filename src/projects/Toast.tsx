@@ -1,42 +1,62 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
+
+type Message = {
+    id: number
+    message: string
+    toastType: string
+}
 
 export default function Toaster() {
     const [toastType, setToastType] = useState('success')
-    const [side, setSide] = useState('left')
-    const [position, setPosition] = useState('top')
-    const [text, setText] = useState('my toast textsdsd')
-    const [duration, setDuration] = useState(1)
-    const [showToast, setShowToast] = useState(false)
-    const timerRef = useRef<NodeJS.Timeout>(null)
-
-    const handleToastClick = () => {
-        setShowToast(true)
-    }
+    const [horizontalPosition, setHorizontalPosition] = useState('left')
+    const [verticlePosition, setVerticlePosition] = useState('top')
+    const [message, setMessage] = useState('my toast textsdsd')
+    const [toastMessages, setToastMessages] = useState<Message[]>([])
+    const [duration, setDuration] = useState(4)
+    const timerIds: NodeJS.Timeout[] = []
 
     useEffect(() => {
-        if (timerRef.current) {
-            clearTimeout(timerRef.current)
+        return () => {
+            timerIds.forEach((timerId) => clearTimeout(timerId));
+        };
+    }, []);
+
+    const handleToastClick = () => {
+        const newToast = {
+            id: Date.now(),
+            message,
+            toastType
         }
-        if (showToast) {
-            timerRef.current = setTimeout(() => setShowToast(false), duration * 1000)
-        }
-        return () => clearTimeout(timerRef.current as NodeJS.Timeout)
-    }, [showToast, duration])
+        setToastMessages([...toastMessages, newToast])
+        console.log(duration)
+        const timerId = setTimeout(() => {
+            setToastMessages(prve => prve.filter(mes => mes.id !== newToast.id))
+        }, duration * 1000)
+        timerIds.push(timerId)
+    }
+
+    const removeToast = (id: number) => {
+        setToastMessages(prve => prve.filter(mes => mes.id !== id))
+    }
 
     const handleDurationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDuration(+e.target.value)
     }
-
+    console.log(horizontalPosition, verticlePosition)
     return (
         <div className="flex flex-col gap-4 justify-center items-center">
-            <Toast side={side} position={position} showToast={showToast} text={text} toastType={toastType} />
+            <div className={`toast_container ${horizontalPosition} ${verticlePosition}`}>
+                {toastMessages.map(message => (
+                    <Toast key={message.id} horizontalPosition={horizontalPosition} verticlePosition={verticlePosition} removeToast={removeToast} message={message} />
+                ))}
+            </div>
             <div>
-                <select onChange={(e) => setSide(e.target.value)} className="w-80 h-10 border-solid border-2" name="" id="" value={side}>
+                <select onChange={(e) => setHorizontalPosition(e.target.value)} className="w-80 h-10 border-solid border-2" name="" id="" value={horizontalPosition}>
                     <DropDown options={["left", "right"]} />
                 </select>
             </div>
             <div>
-                <select onChange={(e) => setPosition(e.target.value)} className="w-80 h-10 border-solid border-2" name="" id="" value={position}>
+                <select onChange={(e) => setVerticlePosition(e.target.value)} className="w-80 h-10 border-solid border-2" name="" id="" value={verticlePosition}>
                     <DropDown options={["top", "bottom"]} />
                 </select>
             </div>
@@ -46,10 +66,10 @@ export default function Toaster() {
                 </select>
             </div>
             <div>
-                <input className="border-solid border-2 border-b-blue-900 px-2 h-8" onChange={(e) => setText(e.target.value)} value={text} id="toast_text" type="text" />
+                <input className="border-solid border-2 border-b-blue-900 px-2 h-8" onChange={(e) => setMessage(e.target.value)} value={message} id="toast_text" type="message" />
             </div>
             <div>
-                <input value={duration} onChange={(e) => handleDurationChange(e)} id="toast_text" type="range" min={1} max={10} step={1} />
+                <input value={duration} onChange={(e) => handleDurationChange(e)} id="toast_text" type="range" min={4} max={10} step={1} />
             </div>
             <div>
                 <button className="p-2 border-amber-500 border-2 bg-white" onClick={handleToastClick}>Show Toast</button>
@@ -60,39 +80,18 @@ export default function Toaster() {
 
 
 interface TypeProps {
-    toastType: string,
-    text: string,
-    showToast: boolean,
-    side: string,
-    position: string,
+    message: Message,
+    horizontalPosition: string,
+    verticlePosition: string,
+    removeToast: (id: number) => void
 }
 
-const Toast = ({ toastType, text, showToast, side, position }: TypeProps) => {
-    let transform = 'translateX(-100%)';
-    let sideCss = {}
-    let positionCss = {}
-    if (side === 'left') {
-        transform = 'translateX(-100%)';
-    } else {
-        transform = 'translateX(100%)';
-    }
-    if (side === 'left') {
-        sideCss = showToast ? { left: '20rem' } : { left: '0' }
-    } else {
-        sideCss = showToast ? { right: '20rem' } : { right: '0' }
-    }
-    positionCss = position === "top" ? { top: '100px' } : { bottom: '100px' }
+const Toast = ({ message, horizontalPosition, verticlePosition, removeToast }: TypeProps) => {
 
     return (
-        <div style={{
-            transform: transform,
-            ...sideCss,
-            ...positionCss
-        }}
-            className={`${toastType} toast ${showToast ? '' : 'hide'}`}
-        >
-            <span className="icon"></span>
-            <span >{text}</span>
+        <div className={`toast fade${horizontalPosition} ${message.toastType}`}>
+            <span >{message.message}</span>
+            <button className="text-red-400 mx-2" onClick={() => removeToast(message.id)}>X</button>
         </div>
     )
 }
@@ -104,7 +103,7 @@ interface DropDownProps {
 const DropDown = ({ options }: DropDownProps) => {
     return (
         <>
-            {options.map(option => <option value={option}>{option}</option>)}
+            {options.map(option => <option key={option} value={option}>{option}</option>)}
         </>
     )
 }
