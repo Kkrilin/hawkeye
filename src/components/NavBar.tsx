@@ -22,6 +22,8 @@ export default function NavBar() {
                 <NavBarLink to="/advancecounter" text="advanceCounter" />
                 <NavBarLink to="/chipsinput" text="chipsInput" />
                 <NavBarLink to="/todolist" text="todoList" />
+                <NavBarLink to="/matchpair" text="matchPair" />
+                <NavBarLink to="/calculator" text="calculator" />
             </ul>
         </nav>
     )

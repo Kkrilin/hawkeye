@@ -140,3 +140,30 @@ li:hover {
   margin-right: 10px;
   content: "\26A0";
 }
+
+.card {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rotate {
+  transform: rotateY(180deg);
+}
+
+.back,
+.front {
+  transform: rotateY(0deg);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
