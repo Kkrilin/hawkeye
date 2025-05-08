@@ -6,7 +6,7 @@ export default function WordConnect() {
     const [groupSize, setGroupSize] = useState(2)
     const [itemCount, setItemCount] = useState(4)
     const [gridCol, setGridCol] = useState(2)
-    const [words, setWords] = useState([])
+    const [words, setWords] = useState<string[]>([])
     const [wordGroup, setWordGroup] = useState([])
     const [allItems, groupItems] = useMemo(() => getConnectedGroup(groupSize, itemCount), [groupSize, itemCount]);
     const [selected, setSelected] = useState<string[]>([])
