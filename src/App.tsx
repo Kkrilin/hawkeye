@@ -22,6 +22,7 @@ import TodoList from './projects/TodoList';
 import MatchPair from './projects/MatchPair';
 import Calculator from './projects/Calculator';
 import WordConnect from './projects/WordConnect';
+import FileExplorer from './projects/FileExplorer';
 
 export default function App() {
   return (
@@ -50,6 +51,7 @@ export default function App() {
           <Route path='matchpair' element={<MatchPair />} />
           <Route path='calculator' element={<Calculator />} />
           <Route path='wordconnect' element={<WordConnect />} />
+          <Route path='fileexplorer' element={<FileExplorer />} />
         </Route>
       </Routes>
     </BrowserRouter>

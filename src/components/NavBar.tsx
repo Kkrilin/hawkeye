@@ -25,6 +25,7 @@ export default function NavBar() {
                 <NavBarLink to="/matchpair" text="matchPair" />
                 <NavBarLink to="/calculator" text="calculator" />
                 <NavBarLink to="/wordconnect" text="wordConnect" />
+                <NavBarLink to="/fileexplorer" text="fileExplorer" />
             </ul>
         </nav>
     )

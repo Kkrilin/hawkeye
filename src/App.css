@@ -248,3 +248,21 @@ li:hover {
 .back {
   transform: rotateY(180deg);
 }
+
+.control button {
+  display: none;
+  font-size: 16px;
+}
+
+.folder:hover button {
+  display: block;
+}
+
+.folder[data-root="true"]:hover .control button:first-child,
+.folder[data-root="true"]:hover .control button:last-child {
+  display: none;
+}
+
+.file:hover .control button {
+  display: block;
+}
