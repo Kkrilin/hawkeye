@@ -23,6 +23,8 @@ import MatchPair from './projects/MatchPair';
 import Calculator from './projects/Calculator';
 import WordConnect from './projects/WordConnect';
 import FileExplorer from './projects/FileExplorer';
+import TypeAhead from './projects/TypeAheadOffline';
+import TypeAheadOnline from './projects/TypeAheadOnline';
 
 export default function App() {
   return (
@@ -52,6 +54,9 @@ export default function App() {
           <Route path='calculator' element={<Calculator />} />
           <Route path='wordconnect' element={<WordConnect />} />
           <Route path='fileexplorer' element={<FileExplorer />} />
+          <Route path='typeaheadCountry' element={<TypeAhead />} />
+          <Route path='typeaheadgithub' element={<TypeAheadOnline />} />
+          <Route path='*' element={<h1 className='text-center text-4xl my-20'>Page Not Found</h1>} />
         </Route>
       </Routes>
     </BrowserRouter>

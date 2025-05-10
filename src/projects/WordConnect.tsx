@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { getConnectedGroup, isWordFromSameGroup } from '../helper/match..helper'
+import { getConnectedGroup, isWordFromSameGroup } from '../helper/match.helper'
 
 
 export default function WordConnect() {

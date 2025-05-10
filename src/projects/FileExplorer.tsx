@@ -43,7 +43,7 @@ export default function FileExplorer() {
         if (parentNode.id === 'root' && newData.nodes) {
             newData.nodes[nodeIndex] = node
         } else {
-            parentNode.nodes[nodeIndex] = node
+            parentNode.nodes![nodeIndex] = node
         }
         setData(newData)
     }
@@ -81,7 +81,7 @@ function Tree({ node, onAdditon, onNodeRemove, parent, onNodeUpdate }: TreeProps
             ...(type === 'folder' ? { isFolder: true, nodes: [] } : {})
         }
         setNewType('')
-        onAdditon(node, parentNode)
+        onAdditon(node as NodeIntf, parentNode)
     }
     const handleNodeRemoval = (id: string, parent: NodeIntf) => {
         onNodeRemove(id, parent)
