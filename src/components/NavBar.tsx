@@ -28,6 +28,7 @@ export default function NavBar() {
                 <NavBarLink to="/fileexplorer" text="fileExplorer" />
                 <NavBarLink to="/typeaheadcountry" text="typeAheadCountry" />
                 <NavBarLink to="/typeaheadgithub" text="typeAheadGitHub" />
+                <NavBarLink to="/meetingcalender" text="meetingCalender" />
             </ul>
         </nav>
     )
