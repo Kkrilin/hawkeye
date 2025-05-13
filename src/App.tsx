@@ -26,6 +26,7 @@ import FileExplorer from './projects/FileExplorer';
 import TypeAhead from './projects/TypeAheadOffline';
 import TypeAheadOnline from './projects/TypeAheadOnline';
 import MeetingCalender from './projects/MeetingCalender';
+import Calendar from './projects/MeetingCalender/App';
 
 export default function App() {
   return (
@@ -57,7 +58,7 @@ export default function App() {
           <Route path='fileexplorer' element={<FileExplorer />} />
           <Route path='typeaheadCountry' element={<TypeAhead />} />
           <Route path='typeaheadgithub' element={<TypeAheadOnline />} />
-          <Route path='meetingcalender' element={<MeetingCalender />} />
+          <Route path='meetingcalender' element={<Calendar />} />
           <Route path='*' element={<h1 className='text-center text-4xl my-20'>Page Not Found</h1>} />
         </Route>
       </Routes>
