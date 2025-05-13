@@ -8,6 +8,11 @@ export interface Meeting {
   modified?: boolean;
 }
 
+export const enum Layout {
+  Slotted = "Slotted",
+  Overlapping = "Overlapping",
+}
+
 export const hrOffset = 8;
 
 export const oneUnit = 100 / (12 * 60);
@@ -193,7 +198,6 @@ export function getSlottedMeetings(meetings: Meeting[]) {
 function placeMeetingsByColumn(meetings: Meeting[], column: number) {
   let meeting: Meeting | null = getNextNonOverlappingMeeting(meetings, null);
 
-  // allow only one modification to in one pass
   meetings.forEach((m) => (m.modified = false));
   while (meeting) {
     meeting.column = column;
@@ -247,4 +251,16 @@ function getPreviousColumnImpactedMeetings(
   return meetings.filter(
     (m) => m.column === meeting.column - 1 && checkOverlap(meeting, m)
   );
+}
+
+export function getOVerlappingMeetings(meetings: Meeting[]) {
+  meetings.forEach((m) => (m.column = 0));
+  const sortedMeetings = sortMeetings(meetings);
+
+  let columnIdx = 1;
+  while (sortedMeetings.some((m) => !m.column)) {
+    placeMeetingsByColumn(meetings, columnIdx++);
+  }
+
+  return sortMeetingsByColumn(meetings);
 }
